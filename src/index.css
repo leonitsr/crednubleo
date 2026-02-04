@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96%;
+    --foreground: 270 50% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 30% 20%;
+
+    --primary: 284 93% 37%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 284 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 90%;
+    --muted-foreground: 270 20% 40%;
+
+    --accent: 145 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 85%;
+    --input: 270 20% 85%;
+    --ring: 285 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom checkout colors */
+    --checkout-hero-start: 284 93% 37%;
+    --checkout-hero-end: 290 90% 42%;
+    --checkout-success: 145 70% 45%;
+    --checkout-section-border: 285 60% 70%;
+  }
+
+  .dark {
+    --background: 270 30% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 270 30% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 270 30% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 285 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 285 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 25%;
+    --muted-foreground: 270 20% 60%;
+
+    --accent: 145 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 25%;
+    --input: 270 20% 25%;
+    --ring: 285 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .checkout-hero-gradient {
+    background: #8506b7;
+  }
+
+  .checkout-section {
+    @apply bg-white rounded-xl border-2 p-5;
+    border-color: hsl(var(--primary));
+  }
+
+  .checkout-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+  }
+
+  .checkout-label {
+    @apply text-sm font-semibold text-primary mb-2 block;
+  }
+
+  .checkout-btn-primary {
+    @apply w-full py-4 rounded-xl font-bold text-lg uppercase tracking-wide transition-all duration-300;
+    background: hsl(var(--checkout-success));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .checkout-btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px hsl(var(--checkout-success) / 0.5);
+  }
+
+  .payment-method-btn {
+    @apply flex-1 py-1 px-2 rounded-lg border-2 font-semibold transition-all duration-200 flex items-center justify-center gap-2;
+  }
+
+  .payment-method-btn.active {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+
+  .payment-method-btn:not(.active) {
+    border-color: hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+  }
+}
